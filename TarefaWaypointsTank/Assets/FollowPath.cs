@@ -54,7 +54,7 @@ public class FollowPath : MonoBehaviour
     public void GoToRuin()
     {
         //Faz o Caminho do nó atual até o locar objetivo
-        g.AStar(currentNode, wps[6]);
+        g.AStar(currentNode, wps[3]);
         //Setando o Wp atual pra 0
         currentWP = 0;
     }
@@ -86,5 +86,9 @@ void LateUpdate()
             //Se dirige ate o objetivo
             Vector3 direction = lookAtGoal - this.transform.position; this.transform.rotation = Quaternion.Slerp(this.transform.rotation,Quaternion.LookRotation(direction),Time.deltaTime * rotSpeed);
         }
+
+        //Faz o player se mover / Professor não colocou no slide
+
+        this.transform.Translate(0, 0, speed * Time.deltaTime);
     }
 }
