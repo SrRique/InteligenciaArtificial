@@ -54,12 +54,21 @@ public class FollowPath : MonoBehaviour
     public void GoToRuin()
     {
         //Faz o Caminho do nó atual até o locar objetivo
-        g.AStar(currentNode, wps[3]);
+        g.AStar(currentNode, wps[2]);
         //Setando o Wp atual pra 0
         currentWP = 0;
     }
 
-void LateUpdate()
+    // Método linkado ao button para fazer o tank ir ate a fabrica 
+    public void GoToFab()
+    {
+        //Faz o Caminho do nó atual até o locar objetivo
+        g.AStar(currentNode, wps[6]);
+        //Setando o Wp atual pra 0
+        currentWP = 0;
+    }
+
+    void LateUpdate()
     {
         //Utilizando o graph
         if (g.getPathLength() == 0 || currentWP == g.getPathLength())
